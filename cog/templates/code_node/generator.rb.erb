@@ -4,5 +4,9 @@
 
 # Makes a graph of the project_source_path
 CodeNode.graph '<%= @name %>' do |g|
+
+  g.ignore /ClassMethods$/
+    
+  g.ignore &:island?
   
 end

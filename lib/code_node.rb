@@ -28,8 +28,9 @@ module CodeNode
     end
 
     sexp = []
-    [:find_nodes, :find_relations].each_with_index do |purpose, pass|
-      puts "#{(pass+1).ordinalize} pass: #{purpose.to_s.gsub('_', ' ')}".color(:cyan)
+    [:find_nodes, :find_relations].each_with_index do |mode, pass|
+      puts "#{(pass+1).ordinalize} pass: #{mode.to_s.gsub('_', ' ')}".color(:cyan)
+      
       Dir.glob("#{root}/**/*.rb").each_with_index do |filename, i|
         sexp[i] ||= begin
           rp.parse(File.read filename)
@@ -38,8 +39,8 @@ module CodeNode
           nil
         end
         if sexp[i]
-          walker = SexpWalker.new @graph, sexp[i]
-          walker.walk purpose
+          walker = SexpWalker.new @graph, sexp[i], :mode => mode
+          walker.walk
         end
       end
     end

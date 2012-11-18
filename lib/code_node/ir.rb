@@ -1,5 +1,4 @@
-require 'code_node/ir/class_node'
-require 'code_node/ir/module_node'
+require 'code_node/ir/node'
 require 'code_node/ir/graph'
 
 module CodeNode

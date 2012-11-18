@@ -5,7 +5,7 @@ spec = Gem::Specification.new do |s|
   s.version = Code_node::VERSION
   s.author = 'Kevin Tonon'
   s.email = 'kevin@betweenconcepts.com'
-  s.homepage = 'http://betweenconcepts.com'
+  s.homepage = 'https://github.com/ktonon/code_node'
   s.platform = Gem::Platform::RUBY
   s.summary = 'Create Class and Module graphs for Ruby projects'
   s.files = %w(LICENSE) + Dir.glob('cog/**/*') + Dir.glob('lib/**/*.rb')
@@ -15,5 +15,7 @@ spec = Gem::Specification.new do |s|
   s.add_dependency('cog')
   s.add_dependency('ruby_parser')
   s.add_development_dependency('rake')
+  s.add_development_dependency('redcarpet')
+  s.add_development_dependency('rspec')
   s.add_development_dependency('yard')
 end

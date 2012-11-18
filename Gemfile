@@ -4,6 +4,9 @@ gemspec
 gem "cog", "~> 0.1.4"
 gem "ruby_parser"
 
-# Documentation
-gem "yard"
-gem "redcarpet"
+group :development do
+  gem "rake"
+  gem "redcarpet"
+  gem "rspec"
+  gem "yard"
+end

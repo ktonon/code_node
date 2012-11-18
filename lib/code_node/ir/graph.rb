@@ -1,18 +1,23 @@
-require 'code_node/ir/class_node'
-require 'code_node/ir/module_node'
+require 'code_node/ir/node'
 
 module CodeNode
   module IR
 
     class Graph
 
+      # @api developer
       attr_reader :scope
-
+      
+      # @api developer
       def initialize
+        @exclude_paths = []
+        @exclude_patterns = []
+        @exclude_procs = []
         @nodes = {}
         @scope = []
       end
 
+      # @api developer
       def node_for(node_type, s, opt={}, &block)
         name = if s.is_a? Symbol
           s
@@ -35,10 +40,10 @@ module CodeNode
           if @scope.length > 1 && @scope[-2].find(name)
             @scope[-2].find name
           else
-            (node_type == :module ? ModuleNode : ClassNode).new(name)
+            Node.new name, :node_type => node_type
           end
         else
-          (node_type == :module ? ModuleNode : ClassNode).new(name, @scope.last)
+          Node.new name, :parent => @scope.last, :node_type => node_type
         end
 
         node = self << node
@@ -51,14 +56,74 @@ module CodeNode
       end
   
       def <<(node)
-        @nodes[node.key] ||= node
-        @nodes[node.key]
+        @nodes[node.path] ||= node
+        @nodes[node.path]
       end
-      def [](key)
-        @nodes[key]
+      
+      # Iterate through each {Node} with {Node#class?} in the graph
+      # @yield node [Node] a class node. Does not yield ignored nodes.
+      # @return [nil]
+      def each_class(&block)
+        @nodes.values.select do |node|
+          node.class? && !should_exclude?(node)
+        end.sort.each &block
       end
-      def nodes
-        @nodes.values.sort
+
+      # Iterate through each {Node} with {Node#module?} in the graph
+      # @yield node [Node] a module node. Does not yield ignored nodes.
+      # @return [nil]
+      def each_module(&block)
+        @nodes.values.select do |node|
+          node.module? && !should_exclude?(node)
+        end.sort.each &block
+      end
+      
+      # Iterate through each containment relation in the graph
+      def each_containment(&block)
+        @nodes.values.sort.each do |node|
+          if node.parent && !should_exclude?(node) && !should_exclude?(node.parent)
+            block.call node.parent, node
+          end
+        end
+      end
+
+      # Iterate through each inheritance relation in the graph
+      def each_inheritance(&block)
+        @nodes.values.sort.each do |node|
+          if node.super_class_node && !should_exclude?(node) && !should_exclude?(node.super_class_node)
+            block.call node, node.super_class_node
+          end
+        end
+      end
+
+      # Iterate through each inclusion relation in the graph
+      def each_inclusion(&block)
+        @nodes.values.sort.each do |node|
+          node.inclusions.each do |other|
+            if !should_exclude?(node) && !should_exclude?(other)
+              block.call node, other
+            end
+          end
+        end
+      end
+
+      # Iterate through each extension relation in the graph
+      def each_extension(&block)
+        @nodes.values.sort.each do |node|
+          node.extensions.each do |other|
+            if !should_exclude?(node) && !should_exclude?(other)
+              block.call node, other
+            end
+          end
+        end
+      end
+
+      private
+      
+      def should_exclude?(node)
+        @exclude_paths.any? {|path| path == node.path} ||
+        @exclude_patterns.any? {|pattern| pattern =~ node.path} ||
+        @exclude_procs.any? {|block| block.call(node)}
       end
     end
     

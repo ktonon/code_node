@@ -3,46 +3,40 @@ digraph
 graph [rankdir="LR"]
 node [style="filled"]
 
-<% @graph.nodes.each do |node| %>
-<% if node.should_render? %>
-<%= node.key %> [label="<%= node.label %>" shape="<%= node.shape %>" fillcolor="<%= node.fillcolor %>" fontcolor="<%= node.fontcolor %>"];
-<% end %>
-<% end %>
-
-/* Contains */
-edge [color="#e8e8e8"]
-<% @graph.nodes.each do |node| %>
-<% if node.parent && node.should_render? && node.parent.should_render? %>
-<%= node.parent.key %> -> <%= node.key %>;
-<% end %>
+/* Module nodes */
+node [shape="box"];
+<% @graph.each_module do |node| %>
+<%= node.stamp 'code_node/node.dot' %>
 <% end %>
 
-/* Extended by */
-edge [color="#000000"]
-<% @graph.nodes.each do |node| %>
-<% node.extended_by.values.sort.each do |other| %>
-<% if node.should_render? && other.should_render? %>
-<%= node.key %> -> <%= other.key %>;
-<% end %>
-<% end %>
+/* Class nodes */
+node [shape="ellipse"];
+<% @graph.each_class do |node| %>
+<%= node.stamp 'code_node/node.dot' %>
 <% end %>
 
-/* Includes */
-edge [color="#336699"]
-<% @graph.nodes.each do |node| %>
-<% node.includes.values.sort.each do |other| %>
-<% if node.should_render? && other.should_render? %>
-<%= node.key %> -> <%= other.key %>;
-<% end %>
-<% end %>
+/* A contains B */
+edge [color="#e8e8e8"];
+<% @graph.each_containment do |a, b| %>
+<%= a.key %> -> <%= b.key %>;
 <% end %>
 
-/* Inherits from */
-edge [color="#996633"]
-<% @graph.nodes.each do |node| %>
-<% if node.should_render? && node.inherits_from && node.inherits_from.should_render? %>
-<%= node.key %> -> <%= node.inherits_from.key %>;
+/* A inherits from B */
+edge [color="#996633"];
+<% @graph.each_inheritance do |a, b| %>
+<%= a.key %> -> <%= b.key %>;
 <% end %>
+
+/* A includes B */
+edge [color="#336699"];
+<% @graph.each_inclusion do |a, b| %>
+<%= a.key %> -> <%= b.key %>;
+<% end %>
+
+/* A extends B */
+edge [color="#000000"];
+<% @graph.each_extension do |a, b| %>
+<%= a.key %> -> <%= b.key %>;
 <% end %>
 
 }
