@@ -55,8 +55,8 @@ module CodeNode
       end
       
       def find(name)
-        key = (@path + [name].flatten).join '_'
-        @children[key] || (@parent && @parent.find(name))
+        path = (@path + [name].flatten).join '::'
+        @children[path] || (@parent && @parent.find(name))
       end
 
       # @return [String] fully qualified identifier for the node in the form <tt>Foo_Bar_Car</tt>. Ideal for graphviz identifiers.
