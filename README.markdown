@@ -53,3 +53,10 @@ For example
 ```bash
 $ dot -T png -o lib/my_graph.png lib/my_graph.dot
 ```
+
+Example
+-------
+
+Here is output of running +code_node+ on [activerecord](https://github.com/rails/rails/tree/master/activerecord/lib)
+
+<img src="https://raw.github.com/ktonon/code_node/master/examples/activerecord.png" />
