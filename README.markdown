@@ -1,6 +1,9 @@
-= code_node 
+code_node
+=========
 
 Create `Class` and `Module` graphs for Ruby projects
+
+**This project is still under development**
 
 Get it
 ------
