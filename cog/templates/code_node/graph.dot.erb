@@ -1,0 +1,48 @@
+digraph
+{
+graph [rankdir="LR"]
+node [style="filled"]
+
+<% @graph.nodes.each do |node| %>
+<% if node.should_render? %>
+<%= node.key %> [label="<%= node.label %>" shape="<%= node.shape %>" fillcolor="<%= node.fillcolor %>" fontcolor="<%= node.fontcolor %>"];
+<% end %>
+<% end %>
+
+/* Contains */
+edge [color="#e8e8e8"]
+<% @graph.nodes.each do |node| %>
+<% if node.parent && node.should_render? && node.parent.should_render? %>
+<%= node.parent.key %> -> <%= node.key %>;
+<% end %>
+<% end %>
+
+/* Extended by */
+edge [color="#000000"]
+<% @graph.nodes.each do |node| %>
+<% node.extended_by.values.sort.each do |other| %>
+<% if node.should_render? && other.should_render? %>
+<%= node.key %> -> <%= other.key %>;
+<% end %>
+<% end %>
+<% end %>
+
+/* Includes */
+edge [color="#336699"]
+<% @graph.nodes.each do |node| %>
+<% node.includes.values.sort.each do |other| %>
+<% if node.should_render? && other.should_render? %>
+<%= node.key %> -> <%= other.key %>;
+<% end %>
+<% end %>
+<% end %>
+
+/* Inherits from */
+edge [color="#996633"]
+<% @graph.nodes.each do |node| %>
+<% if node.should_render? && node.inherits_from && node.inherits_from.should_render? %>
+<%= node.key %> -> <%= node.inherits_from.key %>;
+<% end %>
+<% end %>
+
+}

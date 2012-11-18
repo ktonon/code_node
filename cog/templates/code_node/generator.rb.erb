@@ -1,0 +1,8 @@
+<% if tool.explicit_require %>require '<%= tool.path %>'
+<% else %>require '<%= tool.name %>'
+<% end %>
+
+# Makes a graph of the project_source_path
+CodeNode.graph '<%= @name %>' do |g|
+  
+end

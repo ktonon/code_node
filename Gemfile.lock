@@ -1,0 +1,38 @@
+PATH
+  remote: .
+  specs:
+    code_node (0.0.1)
+      cog
+      ruby_parser
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    active_support (3.0.0)
+      activesupport (= 3.0.0)
+    activesupport (3.0.0)
+    cog (0.1.4)
+      active_support
+      gli
+      i18n
+      rainbow
+    gli (2.4.1)
+    i18n (0.6.1)
+    rainbow (1.1.4)
+    rake (10.0.1)
+    redcarpet (2.2.2)
+    ruby_parser (3.0.1)
+      sexp_processor (~> 4.1)
+    sexp_processor (4.1.2)
+    yard (0.8.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  code_node!
+  cog (~> 0.1.4)
+  rake
+  redcarpet
+  ruby_parser
+  yard
