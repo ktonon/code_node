@@ -40,6 +40,7 @@ Created cog/generators/my_graph.rb
 Run that generator
 
 ```bash
+$ cog gen run
 1st pass: find nodes
 2nd pass: find relations
 Created lib/my_graph.dot
