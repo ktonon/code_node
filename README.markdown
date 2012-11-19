@@ -37,6 +37,23 @@ $ cog --tool=code_node gen new my_graph
 Created cog/generators/my_graph.rb
 ```
 
+The generator will look like this
+
+```ruby
+require 'code_node'
+
+# Makes a graph of the project_source_path
+CodeNode.graph 'my_graph' do |g|
+
+  g.ignore /ClassMethods$/
+    
+  g.ignore &:island?
+  
+end
+```
+
+Customize the graph generator. See [GraphDefiner](http://ktonon.github.com/code_node/CodeNode/DSL/GraphDefiner.html) for help.
+
 Run that generator
 
 ```bash

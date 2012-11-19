@@ -4,13 +4,13 @@ module CodeNode
   module IR
     
     # A node in the {Graph}
-    # Nodes come in two flavors: {ClassNode} and {ModuleNode}
+    # Nodes come in two flavors: {#class?} and {#module?} nodes
     class Node
 
       include Cog::Generator
       
       # @return [String] the name of the node. Not necessarilly unique.
-      # @seealso {path}
+      # @see {#path}
       attr_reader :name
 
       # @return [Node] node which contains this node
@@ -22,7 +22,7 @@ module CodeNode
       attr_reader :parent
 
       # The child nodes of this node
-      # @return [Hash<String,Node>] a mapping from node {path} names to nodes
+      # @return [Hash<String,Node>] a mapping from node {#path} names to nodes
       # @example
       #   module Foo     # Foo has children
       #     module Bar   # Bar
@@ -64,17 +64,17 @@ module CodeNode
         @path.join '_'
       end
 
-      # @return [String] fully qualified name of the node in the form <tt>'Foo::Bar::Car'</tt>. Not good as a graphviz identifier because of the colon (+:+) characters. Use {key} for graphviz identifiers instead.
+      # @return [String] fully qualified name of the node in the form <tt>'Foo::Bar::Car'</tt>. Not good as a graphviz identifier because of the colon (+:+) characters. Use {#key} for graphviz identifiers instead.
       def path
         @path.join '::'
       end
 
-      # @return [String] how the node will be labelled in the graph. Nodes without parents display their full {path}, while nodes with parents only display their {name}.
+      # @return [String] how the node will be labelled in the graph. Nodes without parents display their full {#path}, while nodes with parents only display their {#name}.
       def label
         @parent.nil? ? path : name
       end
 
-      # @return [FixNum] order nodes by {path}
+      # @return [FixNum] order nodes by {#path}
       def <=>(other)
         path <=> other.path
       end
@@ -157,13 +157,6 @@ module CodeNode
          [@children, @inherited_by, @extends, @includes, @extended_by, @included_by].all?(&:empty?))
       end
 
-      def fillcolor
-        '#cccccc'
-      end
-
-      def fontcolor
-        '#000000'
-      end
     end
   end
 end

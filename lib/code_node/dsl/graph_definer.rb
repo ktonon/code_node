@@ -14,11 +14,11 @@ module CodeNode
       # Nodes matching the ignore rule will not be included in the graph.
       # Ignore rules can be given in one of three ways.
       #
-      # * {String} provide a fully qualified path
-      # * {Regexp} provide a pattern that will be tested against the {Node#path}
-      # * {Proc} provide a block. If the block returns +true+ the node will be ignored
+      # * +String+ provide a fully qualified path
+      # * +Regexp+ provide a pattern that will be tested against the {IR::Node#path}
+      # * +Proc+ provide a block. If the block returns +true+ the node will be ignored
       #
-      # @param name [String, Regexp, nil] fully qualified path or regular expression which will be compared to {Node#path}
+      # @param name [String, Regexp, nil] fully qualified path or regular expression which will be compared to {IR::Node#path}
       # @yield [Node] if provided, return +true+ to ignore the node
       # @return [nil]
       def ignore(name=nil, &block)

@@ -61,7 +61,7 @@ module CodeNode
       end
       
       # Iterate through each {Node} with {Node#class?} in the graph
-      # @yield node [Node] a class node. Does not yield ignored nodes.
+      # @yield [Node] a class node. Does not yield ignored nodes.
       # @return [nil]
       def each_class(&block)
         @nodes.values.select do |node|
@@ -70,7 +70,7 @@ module CodeNode
       end
 
       # Iterate through each {Node} with {Node#module?} in the graph
-      # @yield node [Node] a module node. Does not yield ignored nodes.
+      # @yield [Node] a module node. Does not yield ignored nodes.
       # @return [nil]
       def each_module(&block)
         @nodes.values.select do |node|

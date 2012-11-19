@@ -4,13 +4,13 @@ graph [rankdir="LR"]
 node [style="filled"]
 
 /* Module nodes */
-node [shape="box"];
+node [shape="box" fillcolor="#333333" fontcolor="#ffffff"];
 <% @graph.each_module do |node| %>
 <%= node.stamp 'code_node/node.dot' %>
 <% end %>
 
 /* Class nodes */
-node [shape="ellipse"];
+node [shape="ellipse" fillcolor="#cccccc" fontcolor="#000000"];
 <% @graph.each_class do |node| %>
 <%= node.stamp 'code_node/node.dot' %>
 <% end %>
