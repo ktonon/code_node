@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: CodeNode
+  
+    &mdash; Documentation by YARD 0.8.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (C)</a> &raquo;
+    
+    
+    <span class="title">CodeNode</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: CodeNode
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+      <dt class="r1">Extended by:</dt>
+      <dd class="r1">Cog::Generator</dd>
+      
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/code_node.rb<span class="defines">,<br />
+  lib/code_node/ir.rb,<br /> lib/code_node/dsl.rb,<br /> lib/code_node/ir/node.rb,<br /> lib/code_node/ir/graph.rb,<br /> lib/code_node/sexp_walker.rb,<br /> lib/code_node/dsl/graph_definer.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Create Class and Module graphs for Ruby prjects</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="CodeNode/DSL.html" title="CodeNode::DSL (module)">DSL</a></span>, <span class='object_link'><a href="CodeNode/IR.html" title="CodeNode::IR (module)">IR</a></span>
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="CodeNode/SexpWalker.html" title="CodeNode::SexpWalker (class)">SexpWalker</a></span>
+    
+  
+</p>
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#graph-class_method" title="graph (class method)">+ (Object) <strong>graph</strong>(graph_name, opt = {}) {|GraphDefinition| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="graph-class_method">
+  
+    + (<tt>Object</tt>) <strong>graph</strong>(graph_name, opt = {}) {|GraphDefinition| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>graph_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name of the dot file to generate (without <code>.dot</code> extension)</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>opt</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a customizable set of options</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>opt</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:ruby_version</span>
+          <span class="type">(<tt>Symbol</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>:ruby19</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>either <code>:ruby18</code> or <code>:ruby19</code>, indicating which
+parser to use</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>GraphDefinition</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>define rules for creating the graph</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/code_node.rb', line 17</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_graph identifier id'>graph</span><span class='lparen token'>(</span><span class='rubyid_graph_name identifier id'>graph_name</span><span class='comma token'>,</span> <span class='rubyid_opt identifier id'>opt</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='rubyid_root identifier id'>root</span> <span class='assign token'>=</span> <span class='rubyid_Cog constant id'>Cog</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_instance identifier id'>instance</span><span class='dot token'>.</span><span class='rubyid_project_source_path identifier id'>project_source_path</span>
+  <span class='rubyid_@graph ivar id'>@graph</span> <span class='assign token'>=</span> <span class='rubyid_IR constant id'>IR</span><span class='colon2 op'>::</span><span class='rubyid_Graph constant id'>Graph</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span>
+  <span class='rubyid_graph_definer identifier id'>graph_definer</span> <span class='assign token'>=</span> <span class='rubyid_DSL constant id'>DSL</span><span class='colon2 op'>::</span><span class='rubyid_GraphDefiner constant id'>GraphDefiner</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span> <span class='rubyid_@graph ivar id'>@graph</span>
+  <span class='rubyid_block identifier id'>block</span><span class='dot token'>.</span><span class='rubyid_call identifier id'>call</span> <span class='rubyid_graph_definer identifier id'>graph_definer</span>
+
+  <span class='rubyid_rp identifier id'>rp</span> <span class='assign token'>=</span> <span class='rubyid_case case kw'>case</span> <span class='rubyid_opt identifier id'>opt</span><span class='lbrack token'>[</span><span class='symbol val'>:ruby_version</span><span class='rbrack token'>]</span>
+  <span class='rubyid_when when kw'>when</span> <span class='symbol val'>:ruby18</span>
+    <span class='rubyid_Ruby18Parser constant id'>Ruby18Parser</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span>
+  <span class='rubyid_else else kw'>else</span>
+    <span class='rubyid_Ruby19Parser constant id'>Ruby19Parser</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span>
+  <span class='rubyid_end end kw'>end</span>
+
+  <span class='rubyid_sexp identifier id'>sexp</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='lbrack token'>[</span><span class='symbol val'>:find_nodes</span><span class='comma token'>,</span> <span class='symbol val'>:find_relations</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_each_with_index identifier id'>each_with_index</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_mode identifier id'>mode</span><span class='comma token'>,</span> <span class='rubyid_pass identifier id'>pass</span><span class='bitor op'>|</span>
+    <span class='rubyid_puts identifier id'>puts</span> <span class='dstring node'>&quot;#{(pass+1).ordinalize} pass: #{mode.to_s.gsub('_', ' ')}&quot;</span><span class='dot token'>.</span><span class='rubyid_color identifier id'>color</span><span class='lparen token'>(</span><span class='symbol val'>:cyan</span><span class='rparen token'>)</span>
+    
+    <span class='rubyid_Dir constant id'>Dir</span><span class='dot token'>.</span><span class='rubyid_glob identifier id'>glob</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{root}/**/*.rb&quot;</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_each_with_index identifier id'>each_with_index</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_filename identifier id'>filename</span><span class='comma token'>,</span> <span class='rubyid_i identifier id'>i</span><span class='bitor op'>|</span>
+      <span class='rubyid_sexp identifier id'>sexp</span><span class='lbrack token'>[</span><span class='rubyid_i identifier id'>i</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='rubyid_begin begin kw'>begin</span>
+        <span class='rubyid_rp identifier id'>rp</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_File constant id'>File</span><span class='dot token'>.</span><span class='rubyid_read identifier id'>read</span> <span class='rubyid_filename identifier id'>filename</span><span class='rparen token'>)</span>
+      <span class='rubyid_rescue rescue kw'>rescue</span> <span class='rubyid_Racc constant id'>Racc</span><span class='colon2 op'>::</span><span class='rubyid_ParseError constant id'>ParseError</span>
+        <span class='rubyid_STDERR constant id'>STDERR</span><span class='dot token'>.</span><span class='rubyid_write identifier id'>write</span> <span class='string val'>&quot;{filename.relative_to_project_root}, skipped...\n&quot;</span><span class='dot token'>.</span><span class='rubyid_color identifier id'>color</span><span class='lparen token'>(</span><span class='symbol val'>:red</span><span class='rparen token'>)</span>
+        <span class='rubyid_nil nil kw'>nil</span>
+      <span class='rubyid_end end kw'>end</span>
+      <span class='rubyid_if if kw'>if</span> <span class='rubyid_sexp identifier id'>sexp</span><span class='lbrack token'>[</span><span class='rubyid_i identifier id'>i</span><span class='rbrack token'>]</span>
+        <span class='rubyid_walker identifier id'>walker</span> <span class='assign token'>=</span> <span class='rubyid_SexpWalker constant id'>SexpWalker</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span> <span class='rubyid_@graph ivar id'>@graph</span><span class='comma token'>,</span> <span class='rubyid_sexp identifier id'>sexp</span><span class='lbrack token'>[</span><span class='rubyid_i identifier id'>i</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='symbol val'>:mode</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_mode identifier id'>mode</span>
+        <span class='rubyid_walker identifier id'>walker</span><span class='dot token'>.</span><span class='rubyid_walk identifier id'>walk</span>
+      <span class='rubyid_end end kw'>end</span>
+    <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_end end kw'>end</span>
+  
+  <span class='comment val'># Activate code_node while rendering templates</span>
+  <span class='comment val'># so that cog will be able to find code_node templates</span>
+  <span class='rubyid_Cog constant id'>Cog</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_instance identifier id'>instance</span><span class='dot token'>.</span><span class='rubyid_activate_tool identifier id'>activate_tool</span> <span class='string val'>'code_node'</span> <span class='rubyid_do do kw'>do</span>
+    <span class='rubyid_stamp identifier id'>stamp</span> <span class='string val'>'code_node/graph.dot'</span><span class='comma token'>,</span> <span class='dstring node'>&quot;#{graph_name}.dot&quot;</span>
+  <span class='rubyid_end end kw'>end</span>
+  
+  <span class='rubyid_nil nil kw'>nil</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Nov 18 20:39:34 2012 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>
