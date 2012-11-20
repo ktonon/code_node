@@ -1,0 +1,883 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: CodeNode::IR::Graph::TemplateMethods
+  
+    &mdash; Documentation by YARD 0.8.3
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../../';
+  framesUrl = "../../../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../../_index.html">Index (T)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../CodeNode.html" title="CodeNode (module)">CodeNode</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../IR.html" title="CodeNode::IR (module)">IR</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Graph.html" title="CodeNode::IR::Graph (class)">Graph</a></span></span>
+     &raquo; 
+    <span class="title">TemplateMethods</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: CodeNode::IR::Graph::TemplateMethods
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="../Graph.html" title="CodeNode::IR::Graph (class)">CodeNode::IR::Graph</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/code_node/ir/graph.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p><span class='object_link'><a href="../Graph.html" title="CodeNode::IR::Graph (class)">CodeNode::IR::Graph</a></span> methods which are useful in templates</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each_class-instance_method" title="#each_class (instance method)">- (nil) <strong>each_class</strong> {|node| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Iterate through each <span class='object_link'><a href="../Node.html" title="CodeNode::IR::Node (class)">Node</a></span> with <span class='object_link'><a href="../Node/QueryMethods.html#class%3F-instance_method" title="CodeNode::IR::Node::QueryMethods#class? (method)">Node::QueryMethods#class?</a></span> in the graph.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each_containment-instance_method" title="#each_containment (instance method)">- (nil) <strong>each_containment</strong> {|a, b| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Iterate through each containment relation in the graph.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each_extension-instance_method" title="#each_extension (instance method)">- (nil) <strong>each_extension</strong> {|a, b| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Iterate through each extension relation in the graph.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each_inclusion-instance_method" title="#each_inclusion (instance method)">- (nil) <strong>each_inclusion</strong> {|a, b| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Iterate through each inclusion relation in the graph.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each_inheritance-instance_method" title="#each_inheritance (instance method)">- (nil) <strong>each_inheritance</strong> {|a, b| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Iterate through each inheritance relation in the graph.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#each_module-instance_method" title="#each_module (instance method)">- (nil) <strong>each_module</strong> {|node| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Iterate through each <span class='object_link'><a href="../Node.html" title="CodeNode::IR::Node (class)">Node</a></span> with <span class='object_link'><a href="../Node/QueryMethods.html#module%3F-instance_method" title="CodeNode::IR::Node::QueryMethods#module? (method)">Node::QueryMethods#module?</a></span> in the graph.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="each_class-instance_method">
+  
+    - (<tt>nil</tt>) <strong>each_class</strong> {|node| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Iterate through each <span class='object_link'><a href="../Node.html" title="CodeNode::IR::Node (class)">Node</a></span> with <span class='object_link'><a href="../Node/QueryMethods.html#class%3F-instance_method" title="CodeNode::IR::Node::QueryMethods#class? (method)">Node::QueryMethods#class?</a></span> in the graph</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yield Parameters:</p>
+<ul class="yieldparam">
+  
+    <li>
+      
+        <span class='name'>node</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Node/TemplateMethods.html" title="CodeNode::IR::Node::TemplateMethods (module)">Node::TemplateMethods</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a class node. Does not yield ignored nodes.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/graph.rb', line 15</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_each_class identifier id'>each_class</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='rubyid_@nodes ivar id'>@nodes</span><span class='dot token'>.</span><span class='rubyid_values identifier id'>values</span><span class='dot token'>.</span><span class='rubyid_select identifier id'>select</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_node identifier id'>node</span><span class='bitor op'>|</span>
+    <span class='rubyid_node identifier id'>node</span><span class='dot token'>.</span><span class='rubyid_class? fid id'>class?</span>
+  <span class='rubyid_end end kw'>end</span><span class='dot token'>.</span><span class='rubyid_sort identifier id'>sort</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="each_containment-instance_method">
+  
+    - (<tt>nil</tt>) <strong>each_containment</strong> {|a, b| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Iterate through each containment relation in the graph</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><span class='comment val'># a -&gt; b (A contains B)</span>
+<span class='rubyid_module module kw'>module</span> <span class='rubyid_A constant id'>A</span>
+  <span class='rubyid_module module kw'>module</span> <span class='rubyid_B constant id'>B</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    
+  </div>
+
+<p class="tag_title">Yield Parameters:</p>
+<ul class="yieldparam">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Node/TemplateMethods.html" title="CodeNode::IR::Node::TemplateMethods (module)">Node::TemplateMethods</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the container node</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>b</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Node/TemplateMethods.html" title="CodeNode::IR::Node::TemplateMethods (module)">Node::TemplateMethods</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the contained node</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42
+43
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/graph.rb', line 40</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_each_containment identifier id'>each_containment</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='rubyid_@nodes ivar id'>@nodes</span><span class='dot token'>.</span><span class='rubyid_values identifier id'>values</span><span class='dot token'>.</span><span class='rubyid_sort identifier id'>sort</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_node identifier id'>node</span><span class='bitor op'>|</span>
+    <span class='rubyid_if if kw'>if</span> <span class='rubyid_node identifier id'>node</span><span class='dot token'>.</span><span class='rubyid_parent identifier id'>parent</span>
+      <span class='rubyid_block identifier id'>block</span><span class='dot token'>.</span><span class='rubyid_call identifier id'>call</span> <span class='rubyid_node identifier id'>node</span><span class='dot token'>.</span><span class='rubyid_parent identifier id'>parent</span><span class='comma token'>,</span> <span class='rubyid_node identifier id'>node</span>
+    <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="each_extension-instance_method">
+  
+    - (<tt>nil</tt>) <strong>each_extension</strong> {|a, b| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Iterate through each extension relation in the graph</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><span class='comment val'># a -&gt; b (A extends B)</span>
+<span class='rubyid_module module kw'>module</span> <span class='rubyid_A constant id'>A</span>
+  <span class='rubyid_extend identifier id'>extend</span> <span class='rubyid_B constant id'>B</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    
+  </div>
+
+<p class="tag_title">Yield Parameters:</p>
+<ul class="yieldparam">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Node/TemplateMethods.html" title="CodeNode::IR::Node::TemplateMethods (module)">Node::TemplateMethods</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the which extends</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>b</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Node/TemplateMethods.html" title="CodeNode::IR::Node::TemplateMethods (module)">Node::TemplateMethods</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the extended node</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+90
+91
+92
+93
+94
+95
+96</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/graph.rb', line 90</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_each_extension identifier id'>each_extension</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='rubyid_@nodes ivar id'>@nodes</span><span class='dot token'>.</span><span class='rubyid_values identifier id'>values</span><span class='dot token'>.</span><span class='rubyid_sort identifier id'>sort</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_node identifier id'>node</span><span class='bitor op'>|</span>
+    <span class='rubyid_node identifier id'>node</span><span class='dot token'>.</span><span class='rubyid_extensions identifier id'>extensions</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_other identifier id'>other</span><span class='bitor op'>|</span>
+      <span class='rubyid_block identifier id'>block</span><span class='dot token'>.</span><span class='rubyid_call identifier id'>call</span> <span class='rubyid_node identifier id'>node</span><span class='comma token'>,</span> <span class='rubyid_other identifier id'>other</span>
+    <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="each_inclusion-instance_method">
+  
+    - (<tt>nil</tt>) <strong>each_inclusion</strong> {|a, b| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Iterate through each inclusion relation in the graph</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><span class='comment val'># a -&gt; b (A includes B)</span>
+<span class='rubyid_module module kw'>module</span> <span class='rubyid_A constant id'>A</span>
+  <span class='rubyid_include identifier id'>include</span> <span class='rubyid_B constant id'>B</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    
+  </div>
+
+<p class="tag_title">Yield Parameters:</p>
+<ul class="yieldparam">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Node/TemplateMethods.html" title="CodeNode::IR::Node::TemplateMethods (module)">Node::TemplateMethods</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the which includes</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>b</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Node/TemplateMethods.html" title="CodeNode::IR::Node::TemplateMethods (module)">Node::TemplateMethods</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the included node</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+73
+74
+75
+76
+77
+78
+79</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/graph.rb', line 73</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_each_inclusion identifier id'>each_inclusion</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='rubyid_@nodes ivar id'>@nodes</span><span class='dot token'>.</span><span class='rubyid_values identifier id'>values</span><span class='dot token'>.</span><span class='rubyid_sort identifier id'>sort</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_node identifier id'>node</span><span class='bitor op'>|</span>
+    <span class='rubyid_node identifier id'>node</span><span class='dot token'>.</span><span class='rubyid_inclusions identifier id'>inclusions</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_other identifier id'>other</span><span class='bitor op'>|</span>
+      <span class='rubyid_block identifier id'>block</span><span class='dot token'>.</span><span class='rubyid_call identifier id'>call</span> <span class='rubyid_node identifier id'>node</span><span class='comma token'>,</span> <span class='rubyid_other identifier id'>other</span>
+    <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="each_inheritance-instance_method">
+  
+    - (<tt>nil</tt>) <strong>each_inheritance</strong> {|a, b| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Iterate through each inheritance relation in the graph</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><span class='comment val'># a -&gt; b (A inherits from B)</span>
+<span class='rubyid_class class kw'>class</span> <span class='rubyid_A constant id'>A</span> <span class='lt op'>&lt;</span> <span class='rubyid_B constant id'>B</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    
+  </div>
+
+<p class="tag_title">Yield Parameters:</p>
+<ul class="yieldparam">
+  
+    <li>
+      
+        <span class='name'>a</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Node/TemplateMethods.html" title="CodeNode::IR::Node::TemplateMethods (module)">Node::TemplateMethods</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the derived class node</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>b</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Node/TemplateMethods.html" title="CodeNode::IR::Node::TemplateMethods (module)">Node::TemplateMethods</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the super class node</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+56
+57
+58
+59
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/graph.rb', line 56</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_each_inheritance identifier id'>each_inheritance</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='rubyid_@nodes ivar id'>@nodes</span><span class='dot token'>.</span><span class='rubyid_values identifier id'>values</span><span class='dot token'>.</span><span class='rubyid_sort identifier id'>sort</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_node identifier id'>node</span><span class='bitor op'>|</span>
+    <span class='rubyid_if if kw'>if</span> <span class='rubyid_node identifier id'>node</span><span class='dot token'>.</span><span class='rubyid_super_class_node identifier id'>super_class_node</span>
+      <span class='rubyid_block identifier id'>block</span><span class='dot token'>.</span><span class='rubyid_call identifier id'>call</span> <span class='rubyid_node identifier id'>node</span><span class='comma token'>,</span> <span class='rubyid_node identifier id'>node</span><span class='dot token'>.</span><span class='rubyid_super_class_node identifier id'>super_class_node</span>
+    <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="each_module-instance_method">
+  
+    - (<tt>nil</tt>) <strong>each_module</strong> {|node| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Iterate through each <span class='object_link'><a href="../Node.html" title="CodeNode::IR::Node (class)">Node</a></span> with <span class='object_link'><a href="../Node/QueryMethods.html#module%3F-instance_method" title="CodeNode::IR::Node::QueryMethods#module? (method)">Node::QueryMethods#module?</a></span> in the graph</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yield Parameters:</p>
+<ul class="yieldparam">
+  
+    <li>
+      
+        <span class='name'>node</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Node/TemplateMethods.html" title="CodeNode::IR::Node::TemplateMethods (module)">Node::TemplateMethods</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a module node. Does not yield ignored nodes.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/graph.rb', line 24</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_each_module identifier id'>each_module</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='rubyid_@nodes ivar id'>@nodes</span><span class='dot token'>.</span><span class='rubyid_values identifier id'>values</span><span class='dot token'>.</span><span class='rubyid_select identifier id'>select</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_node identifier id'>node</span><span class='bitor op'>|</span>
+    <span class='rubyid_node identifier id'>node</span><span class='dot token'>.</span><span class='rubyid_module? fid id'>module?</span>
+  <span class='rubyid_end end kw'>end</span><span class='dot token'>.</span><span class='rubyid_sort identifier id'>sort</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Mon Nov 19 23:07:39 2012 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

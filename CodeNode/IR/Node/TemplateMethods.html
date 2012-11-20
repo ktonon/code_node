@@ -1,0 +1,973 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: CodeNode::IR::Node::TemplateMethods
+  
+    &mdash; Documentation by YARD 0.8.3
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../../';
+  framesUrl = "../../../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../../_index.html">Index (T)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../CodeNode.html" title="CodeNode (module)">CodeNode</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../IR.html" title="CodeNode::IR (module)">IR</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Node.html" title="CodeNode::IR::Node (class)">Node</a></span></span>
+     &raquo; 
+    <span class="title">TemplateMethods</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: CodeNode::IR::Node::TemplateMethods
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="../Node.html" title="CodeNode::IR::Node (class)">CodeNode::IR::Node</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/code_node/ir/node.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Node methods which are useful in templates</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#children-instance_method" title="#children (instance method)">- (Hash&lt;String,Node&gt;) <strong>children</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The child nodes of this node.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-instance_method" title="#name (instance method)">- (String) <strong>name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The name of the node.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parent-instance_method" title="#parent (instance method)">- (Node) <strong>parent</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Node which contains this node.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#extensions-instance_method" title="#extensions (instance method)">- (Array&lt;Node&gt;) <strong>extensions</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Module nodes for which this node has an <code>extend</code> statement.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inclusions-instance_method" title="#inclusions (instance method)">- (Array&lt;Node&gt;) <strong>inclusions</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Module nodes for which this node has an <code>include</code> statement.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#key-instance_method" title="#key (instance method)">- (String) <strong>key</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Fully qualified identifier for the node in the form
+<code>Foo_Bar_Car</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#label-instance_method" title="#label (instance method)">- (String) <strong>label</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>How the node will be labelled in the graph.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stamp_styles-instance_method" title="#stamp_styles (instance method)">- (String) <strong>stamp_styles</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Stamp the accumulated GraphViz styles in a format suitable for inclusion in
+a <code>.dot</code> file.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#super_class_node-instance_method" title="#super_class_node (instance method)">- (Node<sup>?</sup>) <strong>super_class_node</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The super class of this class.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="children-instance_method">
+  
+    - (<tt>Hash&lt;String,<span class='object_link'><a href="../Node.html" title="CodeNode::IR::Node (class)">Node</a></span>&gt;</tt>) <strong>children</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The child nodes of this node</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><span class='rubyid_module module kw'>module</span> <span class='rubyid_Foo constant id'>Foo</span>     <span class='comment val'># Foo has children</span>
+  <span class='rubyid_module module kw'>module</span> <span class='rubyid_Bar constant id'>Bar</span>   <span class='comment val'># Bar</span>
+  <span class='rubyid_end end kw'>end</span>          <span class='comment val'># and</span>
+  <span class='rubyid_class class kw'>class</span> <span class='rubyid_Car constant id'>Car</span>    <span class='comment val'># Car</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash&lt;String,<span class='object_link'><a href="../Node.html" title="CodeNode::IR::Node (class)">Node</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a mapping from node <span class='object_link'><a href="QueryMethods.html#path-instance_method" title="CodeNode::IR::Node::QueryMethods#path (method)">QueryMethods#path</a></span> names to nodes</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/node.rb', line 36</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_children identifier id'>children</span>
+  <span class='rubyid_@children ivar id'>@children</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="name-instance_method">
+  
+    - (<tt>String</tt>) <strong>name</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The name of the node. Not necessarilly unique.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the name of the node. Not necessarilly unique.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li>CodeNode::IR::Node::TemplateMethods.{{#path}</li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/node.rb', line 17</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_name identifier id'>name</span>
+  <span class='rubyid_@name ivar id'>@name</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="parent-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Node.html" title="CodeNode::IR::Node (class)">Node</a></span></tt>) <strong>parent</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Node which contains this node</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><span class='rubyid_module module kw'>module</span> <span class='rubyid_Foo constant id'>Foo</span>     <span class='comment val'># Foo is the parent</span>
+  <span class='rubyid_module module kw'>module</span> <span class='rubyid_Bar constant id'>Bar</span>   <span class='comment val'># to Bar</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Node.html" title="CodeNode::IR::Node (class)">Node</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>node which contains this node</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/node.rb', line 25</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_parent identifier id'>parent</span>
+  <span class='rubyid_@parent ivar id'>@parent</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="extensions-instance_method">
+  
+    - (<tt>Array&lt;<span class='object_link'><a href="../Node.html" title="CodeNode::IR::Node (class)">Node</a></span>&gt;</tt>) <strong>extensions</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Module nodes for which this node has an <code>extend</code> statement</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../Node.html" title="CodeNode::IR::Node (class)">Node</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>module nodes for which this node has an <code>extend</code> statement</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/node.rb', line 49</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_extensions identifier id'>extensions</span>
+  <span class='rubyid_@extends ivar id'>@extends</span><span class='dot token'>.</span><span class='rubyid_values identifier id'>values</span><span class='dot token'>.</span><span class='rubyid_sort identifier id'>sort</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="inclusions-instance_method">
+  
+    - (<tt>Array&lt;<span class='object_link'><a href="../Node.html" title="CodeNode::IR::Node (class)">Node</a></span>&gt;</tt>) <strong>inclusions</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Module nodes for which this node has an <code>include</code> statement</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../Node.html" title="CodeNode::IR::Node (class)">Node</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>module nodes for which this node has an <code>include</code> statement</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/node.rb', line 44</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_inclusions identifier id'>inclusions</span>
+  <span class='rubyid_@includes ivar id'>@includes</span><span class='dot token'>.</span><span class='rubyid_values identifier id'>values</span><span class='dot token'>.</span><span class='rubyid_sort identifier id'>sort</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="key-instance_method">
+  
+    - (<tt>String</tt>) <strong>key</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Fully qualified identifier for the node in the form
+<code>Foo_Bar_Car</code>. Ideal for graphviz identifiers.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>fully qualified identifier for the node in the form
+<code>Foo_Bar_Car</code>. Ideal for graphviz identifiers.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/node.rb', line 54</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_key identifier id'>key</span>
+  <span class='rubyid_@path ivar id'>@path</span><span class='dot token'>.</span><span class='rubyid_join identifier id'>join</span> <span class='string val'>'_'</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="label-instance_method">
+  
+    - (<tt>String</tt>) <strong>label</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>How the node will be labelled in the graph. Nodes without parents display
+their full <span class='object_link'><a href="QueryMethods.html#path-instance_method" title="CodeNode::IR::Node::QueryMethods#path (method)">QueryMethods#path</a></span>, while nodes with parents only display their <span class='object_link'><a href="#name-instance_method" title="CodeNode::IR::Node::TemplateMethods#name (method)">#name</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>how the node will be labelled in the graph. Nodes without parents display
+their full <span class='object_link'><a href="QueryMethods.html#path-instance_method" title="CodeNode::IR::Node::QueryMethods#path (method)">QueryMethods#path</a></span>, while nodes with parents only display their <span class='object_link'><a href="#name-instance_method" title="CodeNode::IR::Node::TemplateMethods#name (method)">#name</a></span>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/node.rb', line 59</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_label identifier id'>label</span>
+  <span class='rubyid_@parent ivar id'>@parent</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span> <span class='integer val'>? </span><span class='rubyid_path identifier id'>path</span> <span class='colon op'>:</span> <span class='rubyid_name identifier id'>name</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stamp_styles-instance_method">
+  
+    - (<tt>String</tt>) <strong>stamp_styles</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Stamp the accumulated GraphViz styles in a format suitable for inclusion in
+a <code>.dot</code> file</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>style in the form <code>key1=&quot;value1&quot;
+key2=&quot;value2&quot;</code>…</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67
+68
+69
+70
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/node.rb', line 65</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_stamp_styles identifier id'>stamp_styles</span>
+  <span class='rubyid_x identifier id'>x</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='rubyid_style identifier id'>style</span><span class='dot token'>.</span><span class='rubyid_each_pair identifier id'>each_pair</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_key identifier id'>key</span><span class='comma token'>,</span> <span class='rubyid_value identifier id'>value</span><span class='bitor op'>|</span>
+    <span class='rubyid_x identifier id'>x</span> <span class='lshft op'>&lt;&lt;</span> <span class='dstring node'>&quot;#{key}=\&quot;#{value}\&quot;&quot;</span>
+  <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_x identifier id'>x</span><span class='dot token'>.</span><span class='rubyid_join identifier id'>join</span> <span class='string val'>' '</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="super_class_node-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Node.html" title="CodeNode::IR::Node (class)">Node</a></span></tt><sup>?</sup>) <strong>super_class_node</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The super class of this class. Will be <code>nil</code> for modules.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Node.html" title="CodeNode::IR::Node (class)">Node</a></span></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the super class of this class. Will be <code>nil</code> for modules.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/node.rb', line 39</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_super_class_node identifier id'>super_class_node</span>
+  <span class='rubyid_@inherits_from ivar id'>@inherits_from</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Mon Nov 19 23:07:38 2012 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

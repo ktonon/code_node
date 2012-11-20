@@ -128,7 +128,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#ignore-instance_method" title="#ignore (instance method)">- (nil) <strong>ignore</strong>(name = nil) {|Node| ... }</a>
+      <a href="#ignore-instance_method" title="#ignore (instance method)">- (nil) <strong>ignore</strong>(name = nil) {|node| ... }</a>
     
 
     
@@ -143,7 +143,31 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Speficy an ignore rule for the graph.</p>
+<p>Specify an ignore rule for the graph.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#style-instance_method" title="#style (instance method)">- (nil) <strong>style</strong>(name = nil, style = {}) {|node| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Specify a rule for styling nodes.</p>
 </div></span>
   
 </li>
@@ -161,7 +185,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="ignore-instance_method">
   
-    - (<tt>nil</tt>) <strong>ignore</strong>(name = nil) {|Node| ... }
+    - (<tt>nil</tt>) <strong>ignore</strong>(name = nil) {|node| ... }
   
 
   
@@ -170,14 +194,15 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Speficy an ignore rule for the graph. Nodes matching the ignore rule will
+<p>Specify an ignore rule for the graph. Nodes matching the ignore rule will
 not be included in the graph. Ignore rules can be given in one of three
-ways.</p>
+ways,</p>
 <ul><li>
-<p><code>String</code> provide a fully qualified path</p>
+<p><code>String</code> provide a fully qualified path which will have to match
+<span class='object_link'><a href="../IR/Node/QueryMethods.html#path-instance_method" title="CodeNode::IR::Node::QueryMethods#path (method)">IR::Node::QueryMethods#path</a></span> exactly</p>
 </li><li>
 <p><code>Regexp</code> provide a pattern that will be tested against the
-<span class='object_link'><a href="../IR/Node.html#path-instance_method" title="CodeNode::IR::Node#path (method)">IR::Node#path</a></span></p>
+<span class='object_link'><a href="../IR/Node/QueryMethods.html#path-instance_method" title="CodeNode::IR::Node::QueryMethods#path (method)">IR::Node::QueryMethods#path</a></span></p>
 </li><li>
 <p><code>Proc</code> provide a block. If the block returns <code>true</code>
 the node will be ignored</p>
@@ -187,7 +212,28 @@ the node will be ignored</p>
   </div>
 </div>
 <div class="tags">
-  <p class="tag_title">Parameters:</p>
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><span class='rubyid_CodeNode constant id'>CodeNode</span><span class='dot token'>.</span><span class='rubyid_graph identifier id'>graph</span> <span class='string val'>'my_graph'</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_g identifier id'>g</span><span class='bitor op'>|</span>
+
+  <span class='comment val'># Using a full path</span>
+  <span class='rubyid_g identifier id'>g</span><span class='dot token'>.</span><span class='rubyid_ignore identifier id'>ignore</span> <span class='string val'>'Foo::Bar::Car'</span>
+
+  <span class='comment val'># Using a regular expression</span>
+  <span class='rubyid_g identifier id'>g</span><span class='dot token'>.</span><span class='rubyid_ignore identifier id'>ignore</span> <span class='regexp val'>/ClassMethods$/</span>
+
+  <span class='comment val'># Using a block</span>
+  <span class='rubyid_g identifier id'>g</span><span class='dot token'>.</span><span class='rubyid_ignore identifier id'>ignore</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_node identifier id'>node</span><span class='bitor op'>|</span>
+    <span class='rubyid_node identifier id'>node</span><span class='dot token'>.</span><span class='rubyid_inherits_from? fid id'>inherits_from?</span> <span class='string val'>'Exception'</span>
+  <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -204,20 +250,22 @@ the node will be ignored</p>
         &mdash;
         <div class='inline'>
 <p>fully qualified path or regular expression which will be compared to
-<span class='object_link'><a href="../IR/Node.html#path-instance_method" title="CodeNode::IR::Node#path (method)">IR::Node#path</a></span></p>
+<span class='object_link'><a href="../IR/Node/QueryMethods.html#path-instance_method" title="CodeNode::IR::Node::QueryMethods#path (method)">IR::Node::QueryMethods#path</a></span></p>
 </div>
       
     </li>
   
 </ul>
 
-<p class="tag_title">Yields:</p>
-<ul class="yield">
+<p class="tag_title">Yield Parameters:</p>
+<ul class="yieldparam">
   
     <li>
       
+        <span class='name'>node</span>
       
-        <span class='type'>(<tt>Node</tt>)</span>
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../IR/Node/QueryMethods.html" title="CodeNode::IR::Node::QueryMethods (module)">IR::Node::QueryMethods</a></span></tt>)</span>
       
       
       
@@ -249,34 +297,186 @@ the node will be ignored</p>
       <pre class="lines">
 
 
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36</pre>
+40
+41
+42
+43
+44
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/code_node/dsl/graph_definer.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/code_node/dsl/graph_definer.rb', line 40</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_ignore identifier id'>ignore</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='assign token'>=</span><span class='rubyid_nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='rubyid_if if kw'>if</span> <span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_block identifier id'>block</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
     <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_ArgumentError constant id'>ArgumentError</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'Provide either a name or a block'</span><span class='rparen token'>)</span> 
   <span class='rubyid_end end kw'>end</span>
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_block identifier id'>block</span>
-    <span class='rubyid_@graph ivar id'>@graph</span><span class='dot token'>.</span><span class='rubyid_instance_eval identifier id'>instance_eval</span> <span class='lbrace token'>{</span><span class='rubyid_@exclude_procs ivar id'>@exclude_procs</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_block identifier id'>block</span><span class='rbrace token'>}</span>
-  <span class='rubyid_elsif elsif kw'>elsif</span> <span class='rubyid_name identifier id'>name</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span> <span class='rubyid_Regexp constant id'>Regexp</span>
-    <span class='rubyid_@graph ivar id'>@graph</span><span class='dot token'>.</span><span class='rubyid_instance_eval identifier id'>instance_eval</span> <span class='lbrace token'>{</span><span class='rubyid_@exclude_patterns ivar id'>@exclude_patterns</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_name identifier id'>name</span><span class='rbrace token'>}</span>
-  <span class='rubyid_else else kw'>else</span>
-    <span class='rubyid_@graph ivar id'>@graph</span><span class='dot token'>.</span><span class='rubyid_instance_eval identifier id'>instance_eval</span> <span class='lbrace token'>{</span><span class='rubyid_@exclude_paths ivar id'>@exclude_paths</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_name identifier id'>name</span><span class='rbrace token'>}</span>
+  <span class='rubyid_matcher identifier id'>matcher</span> <span class='assign token'>=</span> <span class='rubyid_IR constant id'>IR</span><span class='colon2 op'>::</span><span class='rubyid_NodeMatcher constant id'>NodeMatcher</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span> <span class='rubyid_name identifier id'>name</span> <span class='orop op'>||</span> <span class='rubyid_block identifier id'>block</span>
+  <span class='rubyid_@graph ivar id'>@graph</span><span class='dot token'>.</span><span class='rubyid_instance_eval identifier id'>instance_eval</span> <span class='lbrace token'>{</span><span class='rubyid_@exclude_matchers ivar id'>@exclude_matchers</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_matcher identifier id'>matcher</span><span class='rbrace token'>}</span>
+  <span class='rubyid_nil nil kw'>nil</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="style-instance_method">
+  
+    - (<tt>nil</tt>) <strong>style</strong>(name = nil, style = {}) {|node| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Specify a rule for styling nodes. Nodes matching the given rule will have
+the provided style attributes applied. Rules can be given in one of three
+ways,</p>
+<ul><li>
+<p><code>String</code> provide a fully qualified path which will have to match
+<span class='object_link'><a href="../IR/Node/QueryMethods.html#path-instance_method" title="CodeNode::IR::Node::QueryMethods#path (method)">IR::Node::QueryMethods#path</a></span> exactly</p>
+</li><li>
+<p><code>Regexp</code> provide a pattern that will be tested against the
+<span class='object_link'><a href="../IR/Node/QueryMethods.html#path-instance_method" title="CodeNode::IR::Node::QueryMethods#path (method)">IR::Node::QueryMethods#path</a></span></p>
+</li><li>
+<p><code>Proc</code> provide a block</p>
+</li></ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><span class='rubyid_CodeNode constant id'>CodeNode</span><span class='dot token'>.</span><span class='rubyid_graph identifier id'>graph</span> <span class='string val'>'my_graph'</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_g identifier id'>g</span><span class='bitor op'>|</span>
+
+  <span class='comment val'># Using a full path</span>
+  <span class='rubyid_g identifier id'>g</span><span class='dot token'>.</span><span class='rubyid_style identifier id'>style</span> <span class='string val'>'Foo::Bar::Car'</span><span class='comma token'>,</span> <span class='symbol val'>:shape</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'box'</span>
+
+  <span class='comment val'># Using a regular expression</span>
+  <span class='rubyid_g identifier id'>g</span><span class='dot token'>.</span><span class='rubyid_style identifier id'>style</span> <span class='regexp val'>/ClassMethods$/</span><span class='comma token'>,</span> <span class='symbol val'>:fillcolor</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'#336699'</span>
+
+  <span class='comment val'># Using a block</span>
+  <span class='rubyid_g identifier id'>g</span><span class='dot token'>.</span><span class='rubyid_style identifier id'>style</span> <span class='symbol val'>:penwidth</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>3</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_node identifier id'>node</span><span class='bitor op'>|</span>
+    <span class='rubyid_node identifier id'>node</span><span class='dot token'>.</span><span class='rubyid_extends? fid id'>extends?</span> <span class='string val'>'ActiveSupport::Concern'</span>
   <span class='rubyid_end end kw'>end</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Regexp</tt>, <tt>nil</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>fully qualified path or regular expression which will be compared to
+<span class='object_link'><a href="../IR/Node/QueryMethods.html#path-instance_method" title="CodeNode::IR::Node::QueryMethods#path (method)">IR::Node::QueryMethods#path</a></span></p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>style</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a set of attributes and values to apply to matching nodes. For a full list
+of applicable to GraphViz nodes: <a
+href="http://www.graphviz.org/content/attrs">www.graphviz.org/content/attrs</a></p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yield Parameters:</p>
+<ul class="yieldparam">
+  
+    <li>
+      
+        <span class='name'>node</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../IR/Node/QueryMethods.html" title="CodeNode::IR::Node::QueryMethods (module)">IR::Node::QueryMethods</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>if provided, return <code>true</code> to indicate a match</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77
+78
+79
+80
+81
+82
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/code_node/dsl/graph_definer.rb', line 75</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_style identifier id'>style</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='assign token'>=</span><span class='rubyid_nil nil kw'>nil</span><span class='comma token'>,</span> <span class='rubyid_style identifier id'>style</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='rubyid_style identifier id'>style</span><span class='comma token'>,</span> <span class='rubyid_name identifier id'>name</span> <span class='assign token'>=</span> <span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='rubyid_nil nil kw'>nil</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_name identifier id'>name</span><span class='dot token'>.</span><span class='rubyid_is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='rubyid_Hash constant id'>Hash</span><span class='rparen token'>)</span>
+  <span class='rubyid_if if kw'>if</span> <span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_block identifier id'>block</span><span class='dot token'>.</span><span class='rubyid_nil? fid id'>nil?</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span> <span class='andop op'>&amp;&amp;</span> <span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
+    <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_ArgumentError constant id'>ArgumentError</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'Provide either a name or a block'</span><span class='rparen token'>)</span> 
+  <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_matcher identifier id'>matcher</span> <span class='assign token'>=</span> <span class='rubyid_IR constant id'>IR</span><span class='colon2 op'>::</span><span class='rubyid_NodeMatcher constant id'>NodeMatcher</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span> <span class='rubyid_name identifier id'>name</span> <span class='orop op'>||</span> <span class='rubyid_block identifier id'>block</span>
+  <span class='rubyid_@graph ivar id'>@graph</span><span class='dot token'>.</span><span class='rubyid_instance_eval identifier id'>instance_eval</span> <span class='lbrace token'>{</span><span class='rubyid_@style_matchers ivar id'>@style_matchers</span> <span class='lshft op'>&lt;&lt;</span> <span class='lbrack token'>[</span><span class='rubyid_matcher identifier id'>matcher</span><span class='comma token'>,</span> <span class='rubyid_style identifier id'>style</span><span class='rbrack token'>]</span><span class='rbrace token'>}</span>
   <span class='rubyid_nil nil kw'>nil</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -290,7 +490,7 @@ the node will be ignored</p>
 </div>
 
     <div id="footer">
-  Generated on Sun Nov 18 20:39:37 2012 by
+  Generated on Mon Nov 19 23:07:40 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.8.7).
 </div>

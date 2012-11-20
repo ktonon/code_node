@@ -63,58 +63,62 @@
 
     <div id="content"><div id='filecontents'><h1>code_node</h1>
 
-<p>Create <code>Class</code> and <code>Module</code> graphs for Ruby projects</p>
-
-<p><strong>This project is still under development</strong></p>
+<p>Create graphs of the classes and modules in a Ruby project</p>
 
 <h2>Get it</h2>
 
-<p>From a terminal</p>
+<p>Install the <a href="https://rubygems.org/gems/code_node">code_node gem</a> from a terminal</p>
 
 <pre class="code bash"><code>$ gem install code_node
 </code></pre>
 
-<h2>Using it</h2>
+<h2>Use it</h2>
 
-<p><a href="https://github.com/ktonon/cog#prepare-a-project">Prepare your project</a> with <code>cog</code></p>
+<p>code_node is a <a href="https://github.com/ktonon/cog">cog</a> tool. To use it, you&#39;ll need to:</p>
 
-<pre class="code bash"><code>$ cog init
-Created Cogfile
-Created cog/generators
-Created cog/templates
-</code></pre>
+<ul>
+<li>run <code>cog init</code> from a terminal in the root of your project</li>
+<li>edit the <code>Cogfile</code> and change <code>project_source_path</code> to the root of your Ruby source.</li>
+<li>add <code>code_node</code> to the <code>COG_TOOLS</code> environment variable.</li>
+</ul>
 
-<p>Edit <code>Cogfile</code> and change <code>project_source_path</code> to the root of your Ruby project.</p>
-
-<p>Add <code>code_node</code> to the <code>COG_TOOLS</code> environment variable.</p>
-
-<p>Create a <code>code_node</code> generator</p>
+<p>Now that your project is ready, create a <code>code_node</code> graph generator like this</p>
 
 <pre class="code bash"><code>$ cog --tool=code_node gen new my_graph
 Created cog/generators/my_graph.rb
 </code></pre>
 
-<p>The generator will look like this</p>
+<p>The generator will look something like this</p>
 
-<pre class="code ruby"><code><span class='rubyid_require identifier id'>require</span> <span class='string val'>'code_node'</span>
+<pre class="code ruby"><code><span class='rubyid_CodeNode constant id'>CodeNode</span><span class='dot token'>.</span><span class='rubyid_graph identifier id'>graph</span> <span class='string val'>'my_graph'</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_g identifier id'>g</span><span class='bitor op'>|</span>
 
-<span class='comment val'># Makes a graph of the project_source_path</span>
-<span class='rubyid_CodeNode constant id'>CodeNode</span><span class='dot token'>.</span><span class='rubyid_graph identifier id'>graph</span> <span class='string val'>'my_graph'</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_g identifier id'>g</span><span class='bitor op'>|</span>
-
-  <span class='rubyid_g identifier id'>g</span><span class='dot token'>.</span><span class='rubyid_ignore identifier id'>ignore</span> <span class='regexp val'>/ClassMethods$/</span>
-
+  <span class='comment val'># Ignore nodes with no relations to other nodes</span>
   <span class='rubyid_g identifier id'>g</span><span class='dot token'>.</span><span class='rubyid_ignore identifier id'>ignore</span> <span class='bitand op'>&amp;</span><span class='symbol val'>:island?</span>
 
+  <span class='comment val'># Uncomment and change the value to ignore a specific node</span>
+  <span class='comment val'># g.ignore 'Foo::Bar::Car'</span>
+
+  <span class='comment val'># Uncomment to ignore nodes named ClassMethods</span>
+  <span class='comment val'># g.ignore /::ClassMethods$/</span>
+
+  <span class='comment val'># Uncomment and change the value to ignore all nodes descending</span>
+  <span class='comment val'># from a specific node</span>
+  <span class='comment val'># g.ignore {|node| node.inherits_from? 'Foo::Bar::Car'}</span>
+
+  <span class='comment val'># Apply styles common to all classes</span>
+  <span class='rubyid_g identifier id'>g</span><span class='dot token'>.</span><span class='rubyid_style identifier id'>style</span> <span class='symbol val'>:shape</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'ellipse'</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='symbol val'>:class?</span>
+
+  <span class='comment val'># Apply styles common to all nodes</span>
+  <span class='rubyid_g identifier id'>g</span><span class='dot token'>.</span><span class='rubyid_style identifier id'>style</span> <span class='symbol val'>:shape</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'box'</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='symbol val'>:module?</span>
 <span class='rubyid_end end kw'>end</span>
 </code></pre>
 
-<p>Customize the graph generator. See <a href="http://ktonon.github.com/code_node/CodeNode/DSL/GraphDefiner.html">GraphDefiner</a> for help.</p>
-
-<p>Run that generator</p>
+<p>Customize the graph generator (see <a href="http://ktonon.github.com/code_node/CodeNode/DSL/GraphDefiner.html">GraphDefiner</a> for help) and then run that generator</p>
 
 <pre class="code bash"><code>$ cog gen run
 1st pass: find nodes
 2nd pass: find relations
+Pruning nodes
 Created lib/my_graph.dot
 </code></pre>
 
@@ -124,16 +128,10 @@ For example</p>
 
 <pre class="code bash"><code>$ dot -T png -o lib/my_graph.png lib/my_graph.dot
 </code></pre>
-
-<h2>Example</h2>
-
-<p>Here is output of running +code_node+ on <a href="https://github.com/rails/rails/tree/master/activerecord/lib">activerecord</a></p>
-
-<p><img src="https://raw.github.com/ktonon/code_node/master/examples/activerecord.png" /></p>
 </div></div>
 
     <div id="footer">
-  Generated on Sun Nov 18 20:39:34 2012 by
+  Generated on Mon Nov 19 23:07:36 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.8.7).
 </div>
