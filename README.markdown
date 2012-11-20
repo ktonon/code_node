@@ -1,65 +1,66 @@
 code_node
 =========
 
-Create `Class` and `Module` graphs for Ruby projects
-
-**This project is still under development**
+Create graphs of the classes and modules in a Ruby project
 
 Get it
 ------
 
-From a terminal
+Install the [code_node gem](https://rubygems.org/gems/code_node) from a terminal
 
 ```bash
 $ gem install code_node
 ```
 
-Using it
---------
+Use it
+------
 
-[Prepare your project](https://github.com/ktonon/cog#prepare-a-project) with `cog`
+code_node is a [cog](https://github.com/ktonon/cog) tool. To use it, you'll need to:
 
-```bash
-$ cog init
-Created Cogfile
-Created cog/generators
-Created cog/templates
-```
+* run `cog init` from a terminal in the root of your project
+* edit the `Cogfile` and change `project_source_path` to the root of your Ruby source.
+* add `code_node` to the `COG_TOOLS` environment variable.
 
-Edit `Cogfile` and change `project_source_path` to the root of your Ruby project.
-
-Add `code_node` to the `COG_TOOLS` environment variable.
-
-Create a `code_node` generator
+Now that your project is ready, create a `code_node` graph generator like this
 
 ```bash
 $ cog --tool=code_node gen new my_graph
 Created cog/generators/my_graph.rb
 ```
 
-The generator will look like this
+The generator will look something like this
 
 ```ruby
-require 'code_node'
-
-# Makes a graph of the project_source_path
 CodeNode.graph 'my_graph' do |g|
 
-  g.ignore /ClassMethods$/
-    
+  # Ignore nodes with no relations to other nodes
   g.ignore &:island?
+
+  # Uncomment and change the value to ignore a specific node
+  # g.ignore 'Foo::Bar::Car'
   
+  # Uncomment to ignore nodes named ClassMethods
+  # g.ignore /::ClassMethods$/
+
+  # Uncomment and change the value to ignore all nodes descending
+  # from a specific node
+  # g.ignore {|node| node.inherits_from? 'Foo::Bar::Car'}
+  
+  # Apply styles common to all classes
+  g.style :shape => 'ellipse', &:class?
+
+  # Apply styles common to all nodes
+  g.style :shape => 'box', &:module?
 end
 ```
 
-Customize the graph generator. See [GraphDefiner](http://ktonon.github.com/code_node/CodeNode/DSL/GraphDefiner.html) for help.
-
-Run that generator
+Customize the graph generator (see [GraphDefiner](http://ktonon.github.com/code_node/CodeNode/DSL/GraphDefiner.html) for help) and then run that generator
 
 ```bash
 $ cog gen run
 1st pass: find nodes
 2nd pass: find relations
+Pruning nodes
 Created lib/my_graph.dot
 ```
 
@@ -70,10 +71,3 @@ For example
 ```bash
 $ dot -T png -o lib/my_graph.png lib/my_graph.dot
 ```
-
-Example
--------
-
-Here is output of running +code_node+ on [activerecord](https://github.com/rails/rails/tree/master/activerecord/lib)
-
-<img src="https://raw.github.com/ktonon/code_node/master/examples/activerecord.png" />
