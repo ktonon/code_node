@@ -75,6 +75,16 @@ describe 'code_node' do
       @dot.should_not have_node('SingularAssociation')
     end
     
+    it 'should have ActiveRecord::AttributeMethods but not AttributeMethods' do
+      @dot.should have_module('ActiveRecord::AttributeMethods')
+      @dot.should_not have_node('AttributeMethods')
+    end
+    
+    it 'should have a link from Dirty to Write within AttributeMethods scope' do
+      @dot.should_not have_inclusion('ActiveRecord::AttributeMethods::Dirty', 'AttributeMethods::Write')
+      @dot.should have_inclusion('ActiveRecord::AttributeMethods::Dirty', 'ActiveRecord::AttributeMethods::Write')
+    end
+    
     it 'should have ActiveRecord::Locking::Optimistic but not Locking::Optimistic' do
       @dot.should have_module('ActiveRecord::Locking::Optimistic')
       @dot.should have_module('ActiveRecord::Locking::Pessimistic')

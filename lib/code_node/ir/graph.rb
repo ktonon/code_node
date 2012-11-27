@@ -154,11 +154,17 @@ module CodeNode
           return if name.nil?
     
           node = if opt[:not_sure_if_nested]
-            if !@scope.empty? && @scope.last.find(name)
-              @scope.last.find name
+            candidate = if name.is_a?(Array)
+              parts = name.dup
+              n = !@scope.empty? && @scope.last.find(parts.shift)
+              while n && !parts.empty?
+                n = n.find parts.shift
+              end
+              n
             else
-              Node.new name, :node_type => node_type
+              !@scope.empty? && @scope.last.find(name)
             end
+            candidate || Node.new(name, :node_type => node_type)
           else
             Node.new name, :parent => @scope.last, :node_type => node_type
           end
