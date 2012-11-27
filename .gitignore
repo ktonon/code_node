@@ -1,6 +1,4 @@
 .yardoc
 doc
 pkg
-Cogfile
-cog
 spec/active_fixture

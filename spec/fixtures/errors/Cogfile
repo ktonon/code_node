@@ -1,0 +1,3 @@
+project_generators_path 'cog/generators'
+project_templates_path 'cog/templates'
+project_source_path 'src'
