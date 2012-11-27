@@ -33,16 +33,18 @@ module CodeNode
             walk(c) if c.class == Sexp
           end
         end
-        if find_relations? && !@graph.scope.empty?
+        unless @graph.scope.empty?
           @graph.scope.last.contains node
         end
       elsif find_relations? && s[0] == :call && s.length >= 4 && [:extend, :include].member?(s[2]) && !@graph.scope.empty?
-        node = @graph.node_for :module, s[3], :not_sure_if_nested => true
-        unless node.nil?
-          if s[2] == :extend
-            @graph.scope.last.extends node
-          else
-            @graph.scope.last.includes node
+        s.slice(3..-1).each do |mod_sexp|
+          node = @graph.node_for :module, mod_sexp, :not_sure_if_nested => true
+          unless node.nil?
+            if s[2] == :extend
+              @graph.scope.last.extends node
+            else
+              @graph.scope.last.includes node
+            end
           end
         end
       else

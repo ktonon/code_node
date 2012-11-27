@@ -154,8 +154,8 @@ module CodeNode
           return if name.nil?
     
           node = if opt[:not_sure_if_nested]
-            if @scope.length > 1 && @scope[-2].find(name)
-              @scope[-2].find name
+            if !@scope.empty? && @scope.last.find(name)
+              @scope.last.find name
             else
               Node.new name, :node_type => node_type
             end
