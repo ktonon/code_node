@@ -1,6 +1,10 @@
 code_node
 =========
 
+[![Build Status](https://secure.travis-ci.org/ktonon/code_node.png?branch=master)](https://travis-ci.org/ktonon/code_node)
+[![Dependency Status](https://gemnasium.com/ktonon/code_node.png)](https://gemnasium.com/ktonon/code_node)
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/ktonon/code_node)
+
 Create graphs of the classes and modules in a Ruby project
 
 Get it
