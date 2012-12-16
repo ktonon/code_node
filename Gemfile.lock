@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    code_node (0.1.1)
+    code_node (0.1.2)
       cog
       ruby_parser
 

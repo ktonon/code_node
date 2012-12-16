@@ -57,7 +57,7 @@ end
 Customize the graph generator (see [GraphDefiner](http://ktonon.github.com/code_node/CodeNode/DSL/GraphDefiner.html) for help) and then run that generator
 
 ```bash
-$ cog gen run
+$ cog gen
 1st pass: find nodes
 2nd pass: find relations
 Pruning nodes
