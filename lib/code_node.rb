@@ -16,7 +16,7 @@ module CodeNode
   # @yield [GraphDefinition] define rules for creating the graph
   def self.graph(graph_name, opt={}, &block)
     feedback_color = :white
-    root = Cog::Config.instance.project_source_path
+    root = Cog.project_source_path
     @graph = IR::Graph.new
     graph_definer = DSL::GraphDefiner.new @graph
     block.call graph_definer
@@ -60,7 +60,7 @@ module CodeNode
     
     # Activate code_node while rendering templates
     # so that cog will be able to find code_node templates
-    Cog::Config.instance.activate_tool 'code_node' do
+    Cog.activate_tool 'code_node' do
       stamp 'code_node/graph.dot', "#{graph_name}.dot"
     end
     

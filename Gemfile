@@ -1,7 +1,7 @@
 source :rubygems
 gemspec
 
-gem "cog", "~> 0.1.4"
+gem "cog"
 gem "ruby_parser"
 
 group :development do
