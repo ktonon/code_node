@@ -15,7 +15,9 @@ module CodeNode
         #     module Bar   # to Bar
         #     end
         #   end
-        attr_reader :parent
+        def parent
+          @edge[:parent].values.first
+        end
 
         # The child nodes of this node
         # @return [Hash<String,Node>] a mapping from node {#path} names to nodes
@@ -26,21 +28,23 @@ module CodeNode
         #     class Car    # Car
         #     end
         #   end
-        attr_reader :children
+        def children
+          @edge[:children]
+        end
         
         # @return [Node,nil] the super class of this class. Will be +nil+ for modules.
         def super_class_node
-          @inherits_from
+          @edge[:inherits_from].values.first
         end
         
         # @return [Array<Node>] module nodes for which this node has an +include+ statement
         def inclusions
-          @includes.values.sort
+          @edge[:includes].values.sort
         end
       
         # @return [Array<Node>] module nodes for which this node has an +extend+ statement
         def extensions
-          @extends.values.sort
+          @edge[:extends].values.sort
         end
         
         # @return [String] fully qualified identifier for the node in the form <tt>Foo_Bar_Car</tt>. Ideal for graphviz identifiers.
@@ -50,7 +54,7 @@ module CodeNode
         
         # @return [String] how the node will be labelled in the graph. Nodes without parents display their full {#path}, while nodes with parents only display their {#name}.
         def label
-          @parent.nil? ? path : name
+          parent.nil? ? path : name
         end
 
         # Stamp the accumulated GraphViz styles in a format suitable for inclusion in a <tt>.dot</tt> file

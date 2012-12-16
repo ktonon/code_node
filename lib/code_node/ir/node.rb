@@ -30,14 +30,21 @@ module CodeNode
           parent_path + [name]
         end
         @name = @path.last
-        @parent = nil
-        @children = {}
-        @inherits_from = nil
-        @inherited_by = {}
-        @includes = {}
-        @included_by = {}
-        @extends = {}
-        @extended_by = {}
+        @inverse_relation = {} # :rel => :inv_rel
+        @edge = {} # :rel => { 'node::path' =>  }
+        define_relation :parent, :children
+        define_relation :inherits_from, :inherited_by
+        define_relation :includes, :included_by
+        define_relation :extends, :extended_by
+      end
+      
+      # @param rel [Symbol] the name of a relation
+      # @param inv [Symbol] the name of the inverse relation
+      def define_relation(rel, inv)
+        @inverse_relation[rel] = inv
+        @inverse_relation[inv] = rel
+        @edge[rel] = {}
+        @edge[inv] = {}
       end
       
       # @return [FixNum] order nodes by {#path}
