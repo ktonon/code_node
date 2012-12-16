@@ -59,27 +59,19 @@ module CodeNode
       end
       
       def has_containment?(path1, path2)
-        key1 = path1.to_s.split('::').join '_'
-        key2 = path2.to_s.split('::').join '_'
-        @edges[:containment].member?([key1, key2])
+        has_relation? :containment, path1, path2
       end
 
       def has_inheritance?(path1, path2)
-        key1 = path1.to_s.split('::').join '_'
-        key2 = path2.to_s.split('::').join '_'
-        @edges[:inheritance].member?([key1, key2])
+        has_relation? :inheritance, path1, path2
       end
 
       def has_inclusion?(path1, path2)
-        key1 = path1.to_s.split('::').join '_'
-        key2 = path2.to_s.split('::').join '_'
-        @edges[:inclusion].member?([key1, key2])
+        has_relation? :inclusion, path1, path2
       end
 
       def has_extension?(path1, path2)
-        key1 = path1.to_s.split('::').join '_'
-        key2 = path2.to_s.split('::').join '_'
-        @edges[:extension].member?([key1, key2])
+        has_relation? :extension, path1, path2
       end
       
       private
@@ -107,6 +99,12 @@ module CodeNode
           @i += 1
         end
         @i += 1
+      end
+      
+      def has_relation?(relation, path1, path2)
+        key1 = path1.to_s.split('::').join '_'
+        key2 = path2.to_s.split('::').join '_'
+        @edges[relation].member?([key1, key2])
       end
     end
     
