@@ -1,5 +1,5 @@
-<% if tool.explicit_require %>require '<%= tool.path %>'
-<% else %>require '<%= tool.name %>'
+<% if Cog.active_tool.explicit_require %>require '<%= Cog.active_tool.path %>'
+<% else %>require '<%= Cog.active_tool.name %>'
 <% end %>
 
 # Makes a graph of the project_source_path.
