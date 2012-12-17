@@ -98,7 +98,9 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/code_node/ir/node.rb</dd>
+    <dd class="r1 last">lib/code_node/ir/node.rb<span class="defines">,<br />
+  lib/code_node/ir/node/query_methods.rb,<br /> lib/code_node/ir/node/builder_methods.rb,<br /> lib/code_node/ir/node/template_methods.rb</span>
+</dd>
   
 </dl>
 <div class="clear"></div>
@@ -134,7 +136,7 @@ nodes</p>
   <h2>Instance Attribute Summary</h2>
   
   <h3 class="inherited">Attributes included from <span class='object_link'><a href="Node/TemplateMethods.html" title="CodeNode::IR::Node::TemplateMethods (module)">TemplateMethods</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Node/TemplateMethods.html#children-instance_method" title="CodeNode::IR::Node::TemplateMethods#children (method)">#children</a></span>, <span class='object_link'><a href="Node/TemplateMethods.html#name-instance_method" title="CodeNode::IR::Node::TemplateMethods#name (method)">#name</a></span>, <span class='object_link'><a href="Node/TemplateMethods.html#parent-instance_method" title="CodeNode::IR::Node::TemplateMethods#parent (method)">#parent</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Node/TemplateMethods.html#name-instance_method" title="CodeNode::IR::Node::TemplateMethods#name (method)">#name</a></span></p>
 
 
   
@@ -169,6 +171,28 @@ nodes</p>
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#define_relation-instance_method" title="#define_relation (instance method)">- (Object) <strong>define_relation</strong>(rel, inv) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -193,7 +217,7 @@ nodes</p>
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Node/TemplateMethods.html" title="CodeNode::IR::Node::TemplateMethods (module)">TemplateMethods</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Node/TemplateMethods.html#extensions-instance_method" title="CodeNode::IR::Node::TemplateMethods#extensions (method)">#extensions</a></span>, <span class='object_link'><a href="Node/TemplateMethods.html#inclusions-instance_method" title="CodeNode::IR::Node::TemplateMethods#inclusions (method)">#inclusions</a></span>, <span class='object_link'><a href="Node/TemplateMethods.html#key-instance_method" title="CodeNode::IR::Node::TemplateMethods#key (method)">#key</a></span>, <span class='object_link'><a href="Node/TemplateMethods.html#label-instance_method" title="CodeNode::IR::Node::TemplateMethods#label (method)">#label</a></span>, <span class='object_link'><a href="Node/TemplateMethods.html#stamp_styles-instance_method" title="CodeNode::IR::Node::TemplateMethods#stamp_styles (method)">#stamp_styles</a></span>, <span class='object_link'><a href="Node/TemplateMethods.html#super_class_node-instance_method" title="CodeNode::IR::Node::TemplateMethods#super_class_node (method)">#super_class_node</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Node/TemplateMethods.html#children-instance_method" title="CodeNode::IR::Node::TemplateMethods#children (method)">#children</a></span>, <span class='object_link'><a href="Node/TemplateMethods.html#extensions-instance_method" title="CodeNode::IR::Node::TemplateMethods#extensions (method)">#extensions</a></span>, <span class='object_link'><a href="Node/TemplateMethods.html#inclusions-instance_method" title="CodeNode::IR::Node::TemplateMethods#inclusions (method)">#inclusions</a></span>, <span class='object_link'><a href="Node/TemplateMethods.html#key-instance_method" title="CodeNode::IR::Node::TemplateMethods#key (method)">#key</a></span>, <span class='object_link'><a href="Node/TemplateMethods.html#label-instance_method" title="CodeNode::IR::Node::TemplateMethods#label (method)">#label</a></span>, <span class='object_link'><a href="Node/TemplateMethods.html#parent-instance_method" title="CodeNode::IR::Node::TemplateMethods#parent (method)">#parent</a></span>, <span class='object_link'><a href="Node/TemplateMethods.html#stamp_styles-instance_method" title="CodeNode::IR::Node::TemplateMethods#stamp_styles (method)">#stamp_styles</a></span>, <span class='object_link'><a href="Node/TemplateMethods.html#super_class_node-instance_method" title="CodeNode::IR::Node::TemplateMethods#super_class_node (method)">#super_class_node</a></span></p>
 
   
   
@@ -251,15 +275,97 @@ nodes</p>
       <pre class="lines">
 
 
-244
-245
-246</pre>
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/code_node/ir/node.rb', line 244</span>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/node.rb', line 51</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='cmp op'>&lt;=&gt;</span><span class='lparen token'>(</span><span class='rubyid_other identifier id'>other</span><span class='rparen token'>)</span>
   <span class='rubyid_path identifier id'>path</span> <span class='cmp op'>&lt;=&gt;</span> <span class='rubyid_other identifier id'>other</span><span class='dot token'>.</span><span class='rubyid_path identifier id'>path</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="define_relation-instance_method">
+  
+    - (<tt>Object</tt>) <strong>define_relation</strong>(rel, inv) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>rel</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the name of a relation</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>inv</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the name of the inverse relation</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/node.rb', line 43</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_define_relation identifier id'>define_relation</span><span class='lparen token'>(</span><span class='rubyid_rel identifier id'>rel</span><span class='comma token'>,</span> <span class='rubyid_inv identifier id'>inv</span><span class='rparen token'>)</span>
+  <span class='rubyid_@inverse_relation ivar id'>@inverse_relation</span><span class='lbrack token'>[</span><span class='rubyid_rel identifier id'>rel</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_inv identifier id'>inv</span>
+  <span class='rubyid_@inverse_relation ivar id'>@inverse_relation</span><span class='lbrack token'>[</span><span class='rubyid_inv identifier id'>inv</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_rel identifier id'>rel</span>
+  <span class='rubyid_@edge ivar id'>@edge</span><span class='lbrack token'>[</span><span class='rubyid_rel identifier id'>rel</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+  <span class='rubyid_@edge ivar id'>@edge</span><span class='lbrack token'>[</span><span class='rubyid_inv identifier id'>inv</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -272,7 +378,7 @@ nodes</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Nov 19 23:07:39 2012 by
+  Generated on Sun Dec 16 21:06:04 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.8.7).
 </div>

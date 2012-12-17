@@ -83,7 +83,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/code_node/ir/graph.rb</dd>
+    <dd class="r2 last">lib/code_node/ir/graph/template_methods.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -326,14 +326,14 @@
       <pre class="lines">
 
 
-15
-16
-17
-18
-19</pre>
+11
+12
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/code_node/ir/graph.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/graph/template_methods.rb', line 11</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_each_class identifier id'>each_class</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='rubyid_@nodes ivar id'>@nodes</span><span class='dot token'>.</span><span class='rubyid_values identifier id'>values</span><span class='dot token'>.</span><span class='rubyid_select identifier id'>select</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_node identifier id'>node</span><span class='bitor op'>|</span>
@@ -434,16 +434,16 @@
       <pre class="lines">
 
 
+36
+37
+38
+39
 40
 41
-42
-43
-44
-45
-46</pre>
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/code_node/ir/graph.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/graph/template_methods.rb', line 36</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_each_containment identifier id'>each_containment</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='rubyid_@nodes ivar id'>@nodes</span><span class='dot token'>.</span><span class='rubyid_values identifier id'>values</span><span class='dot token'>.</span><span class='rubyid_sort identifier id'>sort</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_node identifier id'>node</span><span class='bitor op'>|</span>
@@ -545,16 +545,16 @@
       <pre class="lines">
 
 
+86
+87
+88
+89
 90
 91
-92
-93
-94
-95
-96</pre>
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/code_node/ir/graph.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/graph/template_methods.rb', line 86</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_each_extension identifier id'>each_extension</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='rubyid_@nodes ivar id'>@nodes</span><span class='dot token'>.</span><span class='rubyid_values identifier id'>values</span><span class='dot token'>.</span><span class='rubyid_sort identifier id'>sort</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_node identifier id'>node</span><span class='bitor op'>|</span>
@@ -656,16 +656,16 @@
       <pre class="lines">
 
 
+69
+70
+71
+72
 73
 74
-75
-76
-77
-78
-79</pre>
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/code_node/ir/graph.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/graph/template_methods.rb', line 69</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_each_inclusion identifier id'>each_inclusion</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='rubyid_@nodes ivar id'>@nodes</span><span class='dot token'>.</span><span class='rubyid_values identifier id'>values</span><span class='dot token'>.</span><span class='rubyid_sort identifier id'>sort</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_node identifier id'>node</span><span class='bitor op'>|</span>
@@ -766,16 +766,16 @@
       <pre class="lines">
 
 
+52
+53
+54
+55
 56
 57
-58
-59
-60
-61
-62</pre>
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/code_node/ir/graph.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/graph/template_methods.rb', line 52</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_each_inheritance identifier id'>each_inheritance</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='rubyid_@nodes ivar id'>@nodes</span><span class='dot token'>.</span><span class='rubyid_values identifier id'>values</span><span class='dot token'>.</span><span class='rubyid_sort identifier id'>sort</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_node identifier id'>node</span><span class='bitor op'>|</span>
@@ -849,14 +849,14 @@
       <pre class="lines">
 
 
-24
-25
-26
-27
-28</pre>
+20
+21
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/code_node/ir/graph.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/code_node/ir/graph/template_methods.rb', line 20</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_each_module identifier id'>each_module</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='rubyid_block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='rubyid_@nodes ivar id'>@nodes</span><span class='dot token'>.</span><span class='rubyid_values identifier id'>values</span><span class='dot token'>.</span><span class='rubyid_select identifier id'>select</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_node identifier id'>node</span><span class='bitor op'>|</span>
@@ -874,7 +874,7 @@
 </div>
 
     <div id="footer">
-  Generated on Mon Nov 19 23:07:39 2012 by
+  Generated on Sun Dec 16 21:06:04 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.8.7).
 </div>
