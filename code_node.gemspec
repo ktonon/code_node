@@ -8,7 +8,7 @@ spec = Gem::Specification.new do |s|
   s.homepage = 'https://github.com/ktonon/code_node'
   s.platform = Gem::Platform::RUBY
   s.summary = 'Create Class and Module graphs for Ruby projects'
-  s.files = %w(LICENSE) + Dir.glob('cog/**/*') + Dir.glob('lib/**/*.rb')
+  s.files = %w(LICENSE Cogfile) + Dir.glob('templates/**/*') + Dir.glob('lib/**/*.rb')
   s.require_paths << 'lib'
   s.has_rdoc = 'yard'
   s.rdoc_options << '--title' << 'code_node' << '-ri'

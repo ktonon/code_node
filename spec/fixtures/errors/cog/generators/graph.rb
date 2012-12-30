@@ -1,6 +1,3 @@
-$LOAD_PATH << File.expand_path(File.join(File.dirname(__FILE__), '../../../../lib'))
-require 'code_node'
-
 # Makes a graph of the project_source_path.
 # Nodes in the graph are clases and modules from your project.
 CodeNode.graph 'graph' do |g|

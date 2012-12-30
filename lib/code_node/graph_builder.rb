@@ -6,6 +6,8 @@ module CodeNode
   # Helps to build an {IR::Graph}
   class GraphBuilder
     
+    include Cog::Generator
+    
     # @return [IR::Graph] the graph being built
     attr_reader :graph
     
@@ -20,7 +22,7 @@ module CodeNode
     
     # @return [Array<String>] paths to ruby source files
     def sources
-      Dir.glob("#{Cog.project_source_path}/**/*.rb")
+      Dir.glob("#{Cog.project_path}/**/*.rb")
     end
     
     # Define the custom graph generation rules
@@ -67,11 +69,7 @@ module CodeNode
     # Render the graph
     # @return [nil]
     def render
-      # Activate code_node while rendering templates
-      # so that cog will be able to find code_node templates
-      Cog.activate_tool 'code_node' do
-        stamp 'code_node/graph.dot', "#{@name}.dot"
-      end
+      stamp 'code_node/graph.dot', "#{@name}.dot"
       nil
     end
     

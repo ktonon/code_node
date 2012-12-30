@@ -1,7 +1,3 @@
-<% if Cog.active_tool.explicit_require %>require '<%= Cog.active_tool.path %>'
-<% else %>require '<%= Cog.active_tool.name %>'
-<% end %>
-
 # Makes a graph of the project_source_path.
 # Nodes in the graph are clases and modules from your project.
 CodeNode.graph '<%= @name %>' do |g|
